@@ -31,7 +31,15 @@ nav.scrolled{box-shadow:0 2px 30px rgba(255,45,120,.08)}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo{height:44px;width:auto;object-fit:contain;filter:drop-shadow(0 0 12px rgba(255,45,120,.6));transition:filter .3s}
 .nav-logo:hover{filter:drop-shadow(0 0 18px rgba(255,45,120,.9))}
-.nav-wordmark{font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:.1em;
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-byline{font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.15em;color:var(--pk);text-transform:uppercase;opacity:.85}
+
+/* TOP ANNOUNCEMENT BAR */
+.top-bar{position:relative;z-index:201;background:linear-gradient(90deg,var(--pk),var(--pu),var(--bl),var(--pu),var(--pk));background-size:300% 100%;animation:barscroll 4s linear infinite;padding:9px 20px;text-align:center;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.2em;color:#fff;text-transform:uppercase}
+@keyframes barscroll{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+.top-bar span{opacity:.85}
+.top-bar strong{opacity:1;font-weight:700}
+.nav-wordmark{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:.1em;
   background:linear-gradient(90deg,var(--pk),var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .nav-links{display:flex;gap:26px;list-style:none;align-items:center}
 .nav-links a{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s;position:relative}
@@ -114,16 +122,99 @@ section{position:relative;z-index:1;padding:80px 20px;max-width:1100px;margin:0 
 .sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,6vw,4.2rem);letter-spacing:.04em;line-height:1;margin-bottom:48px;
   background:linear-gradient(90deg,#fff 55%,var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-/* WEBXY ORGANIZER BANNER */
-.hero-organized{position:relative;z-index:1;margin-top:8px;font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.15em;color:var(--dim);text-transform:uppercase;animation:fd 1s ease .55s both}
-.hero-organized span{color:var(--pk);font-weight:700;letter-spacing:.1em}
+/* HERO POWERED-BY STRIP */
+.hero-powered-by{position:relative;z-index:2;display:inline-flex;align-items:center;gap:12px;background:rgba(7,7,26,.85);border:1px solid rgba(255,45,120,.35);backdrop-filter:blur(12px);padding:10px 22px;margin-bottom:30px;animation:fd .7s ease both;flex-wrap:wrap;justify-content:center}
+.hero-powered-by::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--pk),var(--pu),var(--bl))}
+.hpb-logo{width:28px;height:28px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(255,45,120,.7))}
+.hpb-text{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.15em;color:var(--dim);text-transform:uppercase}
+.hpb-text strong{color:#fff}
+.hpb-sep{color:rgba(255,255,255,.2);font-size:.8rem}
+.hpb-funded{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.12em;color:var(--gd);text-transform:uppercase}
 
-.webxy-org-banner{display:flex;align-items:center;gap:28px;background:linear-gradient(135deg,rgba(255,45,120,.07),rgba(123,47,255,.07));border:1px solid rgba(255,45,120,.25);padding:28px 32px;margin-bottom:40px;position:relative;overflow:hidden}
-.webxy-org-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--pk),var(--pu),var(--bl))}
-.webxy-banner-logo{width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 0 16px rgba(255,45,120,.5));flex-shrink:0}
-.webxy-banner-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.1em;background:linear-gradient(90deg,var(--pk),var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
-.webxy-banner-desc{color:var(--dim);font-size:.9rem;line-height:1.7;max-width:620px}
-@media(max-width:600px){.webxy-org-banner{flex-direction:column;text-align:center}.webxy-banner-logo{width:56px;height:56px}}
+/* WEBXY SPOTLIGHT SECTION */
+.webxy-spotlight{position:relative;z-index:1;padding:100px 20px;max-width:1200px;margin:0 auto;overflow:hidden}
+.webxy-spotlight-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(123,47,255,.06) 0%,transparent 70%);pointer-events:none}
+
+.webxy-hero-card{position:relative;background:linear-gradient(135deg,rgba(7,7,26,.97),rgba(15,7,40,.97));border:1px solid rgba(255,45,120,.35);padding:64px 56px;overflow:hidden;margin-bottom:48px}
+.webxy-hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pk),var(--pu),var(--bl),var(--pu),var(--pk));background-size:200%;animation:barscroll 3s linear infinite}
+.webxy-hero-card::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(255,45,120,.05),transparent 60%);pointer-events:none}
+.whc-inner{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:center;position:relative;z-index:1}
+.whc-logo-col{text-align:center}
+.whc-logo-ring{position:relative;display:inline-block}
+.whc-logo-ring::before{content:'';position:absolute;inset:-16px;border-radius:50%;border:2px solid rgba(255,45,120,.2);animation:spin 12s linear infinite}
+.whc-logo-ring::after{content:'';position:absolute;inset:-32px;border-radius:50%;border:1px solid rgba(123,47,255,.12);animation:spin 20s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.whc-main-logo{width:160px;height:160px;object-fit:contain;filter:drop-shadow(0 0 40px rgba(255,45,120,.6));animation:logopulse 3s ease-in-out infinite;position:relative;z-index:1}
+.whc-logo-label{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.3em;color:var(--pk);text-transform:uppercase;margin-top:18px;opacity:.9}
+.whc-content{}
+.whc-eyebrow{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.3em;color:var(--pk);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.whc-eyebrow::before{content:'';width:24px;height:1px;background:var(--pk)}
+.whc-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,4.5rem);letter-spacing:.06em;line-height:1;margin-bottom:18px;
+  background:linear-gradient(135deg,#fff 30%,var(--pk) 65%,var(--pu) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.whc-desc{color:rgba(200,200,230,.8);font-size:1.05rem;line-height:1.75;margin-bottom:28px}
+.whc-badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+.whc-badge{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;padding:7px 16px;border:1px solid;display:flex;align-items:center;gap:6px}
+.whc-badge.pk{background:rgba(255,45,120,.08);border-color:rgba(255,45,120,.4);color:var(--pk)}
+.whc-badge.pu{background:rgba(123,47,255,.08);border-color:rgba(123,47,255,.4);color:#a060ff}
+.whc-badge.bl{background:rgba(0,212,255,.06);border-color:rgba(0,212,255,.3);color:var(--bl)}
+.whc-badge.gd{background:rgba(255,215,0,.07);border-color:rgba(255,215,0,.35);color:var(--gd)}
+.whc-badge.grn{background:rgba(0,255,157,.06);border-color:rgba(0,255,157,.3);color:var(--grn)}
+
+/* WEBXY IMPACT METRICS */
+.webxy-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:48px}
+.wm-item{background:var(--card);border:1px solid rgba(255,255,255,.06);padding:28px 20px;text-align:center;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.wm-item:hover{border-color:rgba(255,45,120,.35);transform:translateY(-4px)}
+.wm-item::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+.wm-item:nth-child(1)::before{background:var(--pk)}
+.wm-item:nth-child(2)::before{background:var(--pu)}
+.wm-item:nth-child(3)::before{background:var(--bl)}
+.wm-item:nth-child(4)::before{background:var(--gd)}
+.wm-val{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;line-height:1;margin-bottom:6px}
+.wm-item:nth-child(1) .wm-val{color:var(--pk)}
+.wm-item:nth-child(2) .wm-val{color:#a060ff}
+.wm-item:nth-child(3) .wm-val{color:var(--bl)}
+.wm-item:nth-child(4) .wm-val{color:var(--gd)}
+.wm-lbl{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;line-height:1.5}
+
+/* WEBXY ROLE CARDS */
+.webxy-roles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.wr-card{background:var(--card);border:1px solid rgba(123,47,255,.15);padding:30px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .35s,box-shadow .35s;cursor:default}
+.wr-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px}
+.wr-card:nth-child(1)::before{background:linear-gradient(90deg,var(--pk),var(--pu))}
+.wr-card:nth-child(2)::before{background:linear-gradient(90deg,var(--pu),var(--bl))}
+.wr-card:nth-child(3)::before{background:linear-gradient(90deg,var(--bl),var(--gd))}
+.wr-card:hover{border-color:rgba(255,45,120,.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(255,45,120,.08)}
+.wr-icon{font-size:2.4rem;margin-bottom:14px;display:block}
+.wr-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.06em;color:#fff;margin-bottom:8px}
+.wr-desc{color:var(--dim);font-size:.9rem;line-height:1.72}
+.wr-highlight{margin-top:14px;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.12em;padding:8px 14px;border:1px solid rgba(255,45,120,.25);color:var(--pk);display:inline-block;text-transform:uppercase}
+
+/* FUNDING HIGHLIGHT BAND */
+.funding-band{position:relative;z-index:1;background:linear-gradient(135deg,rgba(255,45,120,.08),rgba(123,47,255,.1),rgba(0,212,255,.06));border-top:1px solid rgba(255,45,120,.2);border-bottom:1px solid rgba(0,212,255,.15);padding:56px 20px;text-align:center;overflow:hidden}
+.funding-band::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse at 20% 50%,rgba(255,45,120,.06),transparent 50%),
+  radial-gradient(ellipse at 80% 50%,rgba(0,212,255,.05),transparent 50%);pointer-events:none}
+.fb-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.fb-label{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.32em;color:var(--pk);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:10px}
+.fb-label::before,.fb-label::after{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--pk))}
+.fb-label::after{background:linear-gradient(90deg,var(--pk),transparent)}
+.fb-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.8rem);letter-spacing:.06em;line-height:1.05;margin-bottom:20px;color:#fff}
+.fb-headline .fb-accent{background:linear-gradient(135deg,var(--pk),var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.fb-sub{font-size:1.05rem;color:rgba(200,200,230,.75);line-height:1.7;margin-bottom:36px;max-width:680px;margin-left:auto;margin-right:auto}
+.fb-pills{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.fb-pill{display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;padding:11px 22px;border:1px solid;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.fb-pill::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;background:rgba(255,255,255,.04)}
+.fb-pill:hover{transform:translateY(-3px)}
+.fb-pill:hover::before{opacity:1}
+.fb-pill.p1{background:rgba(255,45,120,.07);border-color:rgba(255,45,120,.35);color:var(--pk);box-shadow:0 0 20px rgba(255,45,120,.05)}
+.fb-pill.p1:hover{box-shadow:0 8px 30px rgba(255,45,120,.18)}
+.fb-pill.p2{background:rgba(123,47,255,.07);border-color:rgba(123,47,255,.35);color:#a060ff}
+.fb-pill.p3{background:rgba(0,212,255,.05);border-color:rgba(0,212,255,.3);color:var(--bl)}
+.fb-pill.p4{background:rgba(255,215,0,.06);border-color:rgba(255,215,0,.3);color:var(--gd)}
+.fb-pill.p5{background:rgba(0,255,157,.05);border-color:rgba(0,255,157,.25);color:var(--grn)}
+
+@media(max-width:900px){.whc-inner{grid-template-columns:1fr;text-align:center}.whc-eyebrow{justify-content:center}.whc-badges{justify-content:center}.webxy-metrics{grid-template-columns:repeat(2,1fr)}.webxy-roles{grid-template-columns:1fr}}
+@media(max-width:600px){.webxy-hero-card{padding:36px 22px}.webxy-metrics{grid-template-columns:1fr 1fr}}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.vis{opacity:1;transform:none}
 
@@ -228,6 +319,8 @@ section{position:relative;z-index:1;padding:80px 20px;max-width:1100px;margin:0 
 .step-body h4{font-weight:700;font-size:1rem;color:#fff;letter-spacing:.04em;margin-bottom:3px;text-transform:uppercase}
 .step-body p{color:var(--dim);font-size:.86rem}
 
+.webxy-org-team-note{display:flex;align-items:center;gap:16px;background:rgba(255,45,120,.05);border:1px solid rgba(255,45,120,.2);padding:18px 24px;margin-bottom:32px;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;line-height:1.6}
+
 /* ORGANIZERS */
 .org-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:22px}
 .org-card{background:var(--card);border:1px solid rgba(123,47,255,.18);padding:30px 22px;text-align:center;transition:border-color .3s,transform .3s,box-shadow .3s;position:relative;overflow:hidden;cursor:default}
@@ -250,9 +343,13 @@ section{position:relative;z-index:1;padding:80px 20px;max-width:1100px;margin:0 
 .con-role{font-family:'Space Mono',monospace;font-size:.62rem;color:var(--pk);letter-spacing:.12em;text-transform:uppercase}
 
 /* FOOTER */
-footer{position:relative;z-index:1;border-top:1px solid rgba(255,45,120,.09);text-align:center;padding:40px 20px;color:var(--dim);font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em}
+footer{position:relative;z-index:1;border-top:1px solid rgba(255,45,120,.09);text-align:center;padding:48px 20px 32px;color:var(--dim);font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em}
 footer span{color:var(--pk)}
-.footer-logo{width:50px;height:auto;margin:0 auto 16px;display:block;filter:drop-shadow(0 0 8px rgba(255,45,120,.4));opacity:.7}
+.footer-logo{width:56px;height:auto;object-fit:contain;filter:drop-shadow(0 0 14px rgba(255,45,120,.6));margin:0 auto 8px;display:block}
+.footer-webxy-strip{margin-bottom:24px}
+.footer-webxy-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.12em;background:linear-gradient(90deg,var(--pk),var(--pu),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+.footer-webxy-tagline{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.25em;color:var(--pk);text-transform:uppercase;opacity:.8}
+.footer-divider{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--pk),transparent);margin:20px auto}
 
 /* MOBILE */
 @media(max-width:900px){.qr-wrap{grid-template-columns:1fr}}
@@ -330,24 +427,73 @@ footer span{color:var(--pk)}
 
 /* MOBILE HAMBURGER ANIMATION */
 .nav-toggle.active span{display:none}
+
+/* INTERACTIVE MOUSE TRAIL */
+#trail-canvas{position:fixed;inset:0;pointer-events:none;z-index:2;opacity:.65}
+
+/* NAV SCANLINE HOVER */
+nav::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,45,120,.012) 0px,rgba(255,45,120,.012) 1px,transparent 1px,transparent 3px);pointer-events:none;opacity:0;transition:opacity .4s}
+nav.scrolled::after{opacity:1}
+
+/* HERO INTERACTIVE GLOW RING */
+.hero-logo-wrap{cursor:pointer;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.hero-logo-wrap:hover{transform:scale(1.08) rotate(-3deg)}
+.hero-logo-wrap:active{transform:scale(.96)}
+
+/* TYPED CURSOR BLINK */
+.cursor-blink{animation:blink 1s step-end infinite;color:var(--pk)}
+
+/* GLOWING INPUT EFFECT (for any future forms) */
+.glow-btn{position:relative}
+.glow-btn::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,var(--pk),var(--pu),var(--bl));border-radius:inherit;opacity:0;z-index:-1;transition:opacity .3s;filter:blur(8px)}
+.glow-btn:hover::before{opacity:.7}
+
+/* SECTION HOVER NEON EDGE */
+.r-card,.feat,.prz,.org-card{position:relative}
+.r-card::before,.feat::before,.org-card::before{transition:opacity .3s}
+
+/* FLOATING PARTICLES ON HERO */
+.hero-float-dot{position:absolute;border-radius:50%;pointer-events:none;animation:heroFloat linear infinite}
+@keyframes heroFloat{0%{transform:translateY(0) scale(1);opacity:.6}50%{opacity:.9;transform:translateY(-30px) scale(1.2)}100%{transform:translateY(-60px) scale(.8);opacity:0}}
+
+/* INTERACTIVE CTA PULSE RING */
+.cta-btn{box-shadow:0 0 0 0 rgba(255,45,120,.4)}
+.cta-btn:not(:hover){animation:ctaPulse 2.5s ease-out infinite}
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(255,45,120,.4)}70%{box-shadow:0 0 0 18px rgba(255,45,120,0)}100%{box-shadow:0 0 0 0 rgba(255,45,120,0)}}
+
+/* ACTIVE NAV LINK INDICATOR */
+.nav-links a.active{color:var(--pk)}
+.nav-links a.active::after{width:100%}
+
+/* COUNTDOWN DIGIT FLIP */
+.cd-num{transition:transform .15s,opacity .15s}
+.cd-num.flip{transform:rotateX(90deg);opacity:0}
 </style>
 </head>
 <body>
 <div id="scroll-bar"></div>
 <div id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
 <div id="pts"></div>
+<canvas id="trail-canvas"></canvas>
+
+<!-- TOP ANNOUNCEMENT BAR -->
+<div class="top-bar"><strong>🏆 CyphrWeb Hackathon 2026</strong> <span>— Organized by</span> <strong>Webxy Studio</strong> <span>·</span> <strong>₹10,000 Prize Pool</strong> <span>· 13 Apr – 08 May 2026</span></div>
 
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-brand">
-    <img class="nav-logo" src="src/Webxy.png" alt="CyphrWeb">
-    <span class="nav-wordmark">Webxy Studio</span>
+    <img class="nav-logo" src="src/Webxy.png" alt="Webxy Studio">
+    <div class="nav-brand-text">
+      <span class="nav-wordmark">CyphrWeb</span>
+      <span class="nav-byline">by Webxy Studio</span>
+    </div>
   </a>
   <button class="nav-toggle" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
   <ul class="nav-links" id="nl">
     <li><a href="#rounds">Timeline</a></li>
     <li><a href="#prizes">Prizes</a></li>
     <li><a href="#why">Why Join</a></li>
+    <li><a href="#webxy" style="color:var(--pk)">Webxy Studio</a></li>
     <li><a href="#register">Register</a></li>
     <li><a href="#organizers">Team</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -360,6 +506,15 @@ footer span{color:var(--pk)}
   <div class="hero-orb orb1"></div>
   <div class="hero-orb orb2"></div>
   <div class="hero-orb orb3"></div>
+
+  <!-- Webxy Studio powered-by strip at top of hero -->
+  <div class="hero-powered-by">
+    <img src="src/Webxy.png" alt="Webxy Studio" class="hpb-logo">
+    <span class="hpb-text">A <strong>Webxy Studio</strong> Production</span>
+    <span class="hpb-sep">|</span>
+    <span class="hpb-funded">🏗️ Organized by Webxy Studio</span>
+  </div>
+
   <div class="hero-logo-wrap">
     <img class="hero-logo" src="src/Webxy.png" alt="CyphrWeb">
   </div>
@@ -371,7 +526,7 @@ footer span{color:var(--pk)}
   <p class="hero-tagline">Build &nbsp;·&nbsp; Execute &nbsp;·&nbsp; Win</p>
   <div class="prize-splash">
     <div class="prize-amt">₹10,000</div>
-    <div class="prize-lbl">Total Prize Pool</div>
+    <div class="prize-lbl">Total Prize Pool · CyphrWeb Hackathon 2026</div>
   </div>
   <div class="hero-cta">
     <a href="https://forms.gle/uf2Auhp5KgkFNQgWA" target="_blank" class="cta-btn">Register Now — ₹199 <span class="cta-arrow">→</span></a>
@@ -474,7 +629,7 @@ footer span{color:var(--pk)}
   <p style="text-align:center;margin-top:28px;font-family:'Space Mono',monospace;font-size:.75rem;color:var(--gd);letter-spacing:.14em">TOTAL PRIZE POOL: ₹10,000 + OPPORTUNITIES</p>
   <div class="perks reveal">
     <div class="perk"><div class="perk-icon">💡</div><div><div class="perk-title">Problem Statements Provided</div><p class="perk-desc">Curated real-world problems given by organizers — no hunting needed.</p></div></div>
-    <div class="perk"><div class="perk-icon">🤝</div><div><div class="perk-title">Partner Opportunities</div><p class="perk-desc">Selected participants may work as potential partners on funded ideas.</p></div></div>
+    <div class="perk"><div class="perk-icon">🤝</div><div><div class="perk-title">Partner Opportunities</div><p class="perk-desc">Selected participants may work as potential partners on promising ideas with Webxy Studio.</p></div></div>
     <div class="perk"><div class="perk-icon">🚀</div><div><div class="perk-title">Startup Support</div><p class="perk-desc">Best teams may receive startup support and direct mentorship.</p></div></div>
   </div>
 </section>
@@ -506,28 +661,102 @@ footer span{color:var(--pk)}
   </div>
 </div>
 
+<!-- WEBXY STUDIO SPOTLIGHT -->
+<div class="div"></div>
+<section id="webxy" class="webxy-spotlight">
+  <div class="webxy-spotlight-bg"></div>
+  <div class="reveal"><p class="sec-label">The Force Behind It All</p><h2 class="sec-title">Webxy Studio</h2></div>
+
+  <!-- Hero Card -->
+  <div class="webxy-hero-card reveal">
+    <div class="whc-inner">
+      <div class="whc-logo-col">
+        <div class="whc-logo-ring">
+          <img src="src/Webxy.png" alt="Webxy Studio" class="whc-main-logo">
+        </div>
+        <div class="whc-logo-label">Official Organizer</div>
+      </div>
+      <div class="whc-content">
+        <div class="whc-eyebrow">Proud Organizer of CyphrWeb Hackathon</div>
+        <div class="whc-name">Webxy Studio</div>
+        <p class="whc-desc">
+          CyphrWeb Hackathon exists because of one company's belief in the next generation of developers — <strong style="color:#fff">Webxy Studio</strong>. They conceptualized this event, built it from the ground up, and manage every aspect of the experience. Every problem statement, every evaluation round, every milestone — all driven by Webxy Studio.
+        </p>
+        <div class="whc-badges">
+          <span class="whc-badge pk">🏆 Title Organizer</span>
+          <span class="whc-badge pu">🎯 Event Creator</span>
+          <span class="whc-badge bl">🛠️ Technical Partner</span>
+          <span class="whc-badge grn">🚀 Community Builder</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impact Metrics -->
+  <div class="webxy-metrics reveal">
+    <div class="wm-item">
+      <div class="wm-val">100%</div>
+      <div class="wm-lbl">Event Organized<br>by Webxy Studio</div>
+    </div>
+    <div class="wm-item">
+      <div class="wm-val">₹10K</div>
+      <div class="wm-lbl">Total<br>Prize Pool</div>
+    </div>
+    <div class="wm-item">
+      <div class="wm-val">4+</div>
+      <div class="wm-lbl">Weeks of<br>Planning &amp; Setup</div>
+    </div>
+    <div class="wm-item">
+      <div class="wm-val">∞</div>
+      <div class="wm-lbl">Commitment to<br>Developer Growth</div>
+    </div>
+  </div>
+
+  <!-- Role Cards -->
+  <div class="webxy-roles reveal">
+    <div class="wr-card">
+      <span class="wr-icon">🏗️</span>
+      <div class="wr-title">Organizer</div>
+      <p class="wr-desc">Webxy Studio designed every round, crafted problem statements, set up the evaluation framework, and managed all logistics from registration to results.</p>
+      <span class="wr-highlight">Full Event Management</span>
+    </div>
+    <div class="wr-card">
+      <span class="wr-icon">🎯</span>
+      <div class="wr-title">Event Architect</div>
+      <p class="wr-desc">From problem statements to round structures and judging criteria — every detail of CyphrWeb Hackathon was crafted with precision by the Webxy Studio team.</p>
+      <span class="wr-highlight">End-to-End Design</span>
+    </div>
+    <div class="wr-card">
+      <span class="wr-icon">🌟</span>
+      <div class="wr-title">Vision Holder</div>
+      <p class="wr-desc">Webxy Studio believes developers grow through execution, not presentations. This hackathon is a direct reflection of their mission to build a stronger dev community.</p>
+      <span class="wr-highlight">The Driving Mission</span>
+    </div>
+  </div>
+</section>
+
+
+<div class="div"></div>
+
 <!-- ORGANIZERS -->
 <section id="organizers">
-  <div class="reveal"><p class="sec-label">Presented By</p><h2 class="sec-title">Organized by Webxy Studio</h2></div>
-  <div class="webxy-org-banner reveal">
-    <img src="src/Webxy.png" alt="Webxy Studio" class="webxy-banner-logo">
-    <div class="webxy-banner-text">
-      <div class="webxy-banner-name">Webxy Studio</div>
-      <div class="webxy-banner-desc">CyphrWeb Hackathon is proudly organized and hosted by Webxy Studio — building the next generation of developers through real-world execution challenges.</div>
-    </div>
+  <div class="reveal"><p class="sec-label">Webxy Studio Team</p><h2 class="sec-title">The People Behind It</h2></div>
+  <div class="webxy-org-team-note reveal">
+    <img src="src/Webxy.png" alt="Webxy Studio" style="width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(255,45,120,.5));flex-shrink:0">
+    <p>These organizers are from <strong style="color:var(--pk)">Webxy Studio</strong> — the team that built and runs CyphrWeb Hackathon.</p>
   </div>
   <div class="org-grid reveal">
     <div class="org-card">
       <div class="org-av"><img src="sandesh.png" alt="Sandesh" onerror="this.parentElement.outerHTML='<div class=&quot;org-av-fb&quot;>SS</div>'"></div>
-      <div class="org-name">Sandesh Shingankar</div><div class="org-role">Lead Organizer</div>
+      <div class="org-name">Sandesh Shingankar</div><div class="org-role">Lead Organizer · Webxy Studio</div>
     </div>
     <div class="org-card">
       <div class="org-av"><img src="kiran.png" alt="Kiran" onerror="this.parentElement.outerHTML='<div class=&quot;org-av-fb&quot;>KR</div>'"></div>
-      <div class="org-name">Kiran Rathod</div><div class="org-role">Co-Organizer</div>
+      <div class="org-name">Kiran Rathod</div><div class="org-role">Co-Organizer · Webxy Studio</div>
     </div>
     <div class="org-card">
       <div class="org-av"><img src="siddhant.png" alt="Siddhant" onerror="this.parentElement.outerHTML='<div class=&quot;org-av-fb&quot;>SP</div>'"></div>
-      <div class="org-name">Siddhant Patil</div><div class="org-role">Co-Organizer</div>
+      <div class="org-name">Siddhant Patil</div><div class="org-role">Co-Organizer · Webxy Studio</div>
     </div>
   </div>
 </section>
@@ -554,10 +783,15 @@ footer span{color:var(--pk)}
 </section>
 
 <footer>
-  <img class="footer-logo" src="src/Webxy.png" alt="Webxy Studio">
-  <p>© 2026 <span>CyphrWeb Hackathon</span></p>
-  <p style="margin-top:6px;opacity:.8">Organized &amp; Presented by <span style="color:var(--pk);font-weight:700">Webxy Studio</span></p>
-  <p style="margin-top:6px;opacity:.6">Build. Execute. Win. &nbsp;·&nbsp; 100% Online &nbsp;·&nbsp; 13 Apr – 08 May 2026 &nbsp;·&nbsp; ₹10,000 Prize Pool</p>
+  <div class="footer-webxy-strip">
+    <img src="src/Webxy.png" alt="Webxy Studio" class="footer-logo">
+    <div class="footer-webxy-name">Webxy Studio</div>
+    <div class="footer-webxy-tagline">Official Organizer · CyphrWeb Hackathon</div>
+  </div>
+  <div class="footer-divider"></div>
+  <p>© 2026 <span>CyphrWeb Hackathon</span> — A <span>Webxy Studio</span> Event</p>
+  <p style="margin-top:8px;opacity:.55;font-size:.6rem">Organized by <span style="color:var(--pk);opacity:1">Webxy Studio</span> · All Rights Reserved</p>
+  <p style="margin-top:6px;opacity:.45">Build. Execute. Win. &nbsp;·&nbsp; 100% Online &nbsp;·&nbsp; 13 Apr – 08 May 2026 &nbsp;·&nbsp; ₹10,000 Prize Pool</p>
 </footer>
 
 <script>
@@ -580,20 +814,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 // Nav scroll shadow
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',scrollY>20)});
 
-// Countdown
-(function(){
-  const target=new Date('2026-04-23T23:59:59');
-  const pad=n=>String(n).padStart(2,'0');
-  function tick(){
-    const d=target-new Date();
-    if(d<=0){document.querySelector('.cd-box').innerHTML='<div class="cd-lbl" style="color:var(--pk);font-size:.82rem;padding:10px 0">⚡ Registration Closed</div>';return}
-    document.getElementById('cd-d').textContent=pad(Math.floor(d/86400000));
-    document.getElementById('cd-h').textContent=pad(Math.floor(d%86400000/3600000));
-    document.getElementById('cd-m').textContent=pad(Math.floor(d%3600000/60000));
-    document.getElementById('cd-s').textContent=pad(Math.floor(d%60000/1000));
-  }
-  tick();setInterval(tick,1000);
-})();
+// Countdown handled by enhanced flip version below
 
 // Scroll progress bar
 window.addEventListener('scroll',()=>{
@@ -663,6 +884,95 @@ if(eyebrow){
     },35);
   },1200);
 }
+
+// === MOUSE TRAIL CANVAS ===
+(function(){
+  const canvas=document.getElementById('trail-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H,dots=[];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+  resize();window.addEventListener('resize',resize);
+  const colors=['rgba(255,45,120,','rgba(123,47,255,','rgba(0,212,255,'];
+  window.addEventListener('mousemove',e=>{
+    for(let i=0;i<2;i++){
+      dots.push({x:e.clientX+((Math.random()-.5)*12),y:e.clientY+((Math.random()-.5)*12),
+        r:Math.random()*3+1,life:1,
+        col:colors[Math.floor(Math.random()*colors.length)],
+        vx:(Math.random()-.5)*.8,vy:(Math.random()-.5)*.8-0.4});
+    }
+  });
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    dots=dots.filter(d=>d.life>0);
+    dots.forEach(d=>{
+      d.x+=d.vx;d.y+=d.vy;d.life-=.025;d.r*=.97;
+      ctx.beginPath();
+      ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
+      ctx.fillStyle=d.col+d.life.toFixed(2)+')';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// === HERO LOGO PARTICLE BURST ON CLICK ===
+document.querySelector('.hero-logo-wrap')?.addEventListener('click',function(){
+  const rect=this.getBoundingClientRect();
+  const cx=rect.left+rect.width/2,cy=rect.top+rect.height/2;
+  for(let i=0;i<18;i++){
+    const el=document.createElement('div');
+    el.style.cssText=`position:fixed;left:${cx}px;top:${cy}px;width:6px;height:6px;border-radius:50%;pointer-events:none;z-index:9999;
+      background:${['#ff2d78','#7b2fff','#00d4ff','#ffd700'][i%4]};
+      transform:translate(-50%,-50%);transition:transform 0.7s ease-out,opacity 0.7s ease-out`;
+    document.body.appendChild(el);
+    const angle=(i/18)*Math.PI*2;
+    const dist=80+Math.random()*80;
+    requestAnimationFrame(()=>{
+      el.style.transform=`translate(calc(-50% + ${Math.cos(angle)*dist}px),calc(-50% + ${Math.sin(angle)*dist}px)) scale(0)`;
+      el.style.opacity='0';
+    });
+    setTimeout(()=>el.remove(),750);
+  }
+});
+
+// === ACTIVE NAV LINK ON SCROLL ===
+(function(){
+  const sections=document.querySelectorAll('section[id], div[id="register"]');
+  const links=document.querySelectorAll('.nav-links a[href^="#"]');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.classList.remove('active'));
+        const active=document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if(active)active.classList.add('active');
+      }
+    });
+  },{threshold:.35});
+  sections.forEach(s=>obs.observe(s));
+})();
+
+// === COUNTDOWN WITH DIGIT FLIP ===
+(function(){
+  const target=new Date('2026-04-23T23:59:59');
+  const pad=n=>String(n).padStart(2,'0');
+  let prev={d:'',h:'',m:'',s:''};
+  function flipUpdate(id,val){
+    const el=document.getElementById(id);
+    if(!el||el.textContent===val)return;
+    el.classList.add('flip');
+    setTimeout(()=>{el.textContent=val;el.classList.remove('flip');},120);
+  }
+  function tick(){
+    const d=target-new Date();
+    if(d<=0){document.querySelector('.cd-box').innerHTML='<div class="cd-lbl" style="color:var(--pk);font-size:.82rem;padding:10px 0">⚡ Registration Closed</div>';return}
+    flipUpdate('cd-d',pad(Math.floor(d/86400000)));
+    flipUpdate('cd-h',pad(Math.floor(d%86400000/3600000)));
+    flipUpdate('cd-m',pad(Math.floor(d%3600000/60000)));
+    flipUpdate('cd-s',pad(Math.floor(d%60000/1000)));
+  }
+  tick();setInterval(tick,1000);
+})();
 
 </script>
 </body>
