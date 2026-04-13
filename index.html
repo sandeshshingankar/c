@@ -114,7 +114,16 @@ section{position:relative;z-index:1;padding:80px 20px;max-width:1100px;margin:0 
 .sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,6vw,4.2rem);letter-spacing:.04em;line-height:1;margin-bottom:48px;
   background:linear-gradient(90deg,#fff 55%,var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-/* REVEAL */
+/* WEBXY ORGANIZER BANNER */
+.hero-organized{position:relative;z-index:1;margin-top:8px;font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.15em;color:var(--dim);text-transform:uppercase;animation:fd 1s ease .55s both}
+.hero-organized span{color:var(--pk);font-weight:700;letter-spacing:.1em}
+
+.webxy-org-banner{display:flex;align-items:center;gap:28px;background:linear-gradient(135deg,rgba(255,45,120,.07),rgba(123,47,255,.07));border:1px solid rgba(255,45,120,.25);padding:28px 32px;margin-bottom:40px;position:relative;overflow:hidden}
+.webxy-org-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--pk),var(--pu),var(--bl))}
+.webxy-banner-logo{width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 0 16px rgba(255,45,120,.5));flex-shrink:0}
+.webxy-banner-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.1em;background:linear-gradient(90deg,var(--pk),var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px}
+.webxy-banner-desc{color:var(--dim);font-size:.9rem;line-height:1.7;max-width:620px}
+@media(max-width:600px){.webxy-org-banner{flex-direction:column;text-align:center}.webxy-banner-logo{width:56px;height:56px}}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.vis{opacity:1;transform:none}
 
@@ -331,8 +340,8 @@ footer span{color:var(--pk)}
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-brand">
-    <img class="nav-logo" src="logo.png" alt="CyphrWeb">
-    <span class="nav-wordmark">CyphrWeb</span>
+    <img class="nav-logo" src="src/Webxy.png" alt="CyphrWeb">
+    <span class="nav-wordmark">Webxy Studio</span>
   </a>
   <button class="nav-toggle" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
   <ul class="nav-links" id="nl">
@@ -352,12 +361,13 @@ footer span{color:var(--pk)}
   <div class="hero-orb orb2"></div>
   <div class="hero-orb orb3"></div>
   <div class="hero-logo-wrap">
-    <img class="hero-logo" src="logo.png" alt="CyphrWeb">
+    <img class="hero-logo" src="src/Webxy.png" alt="CyphrWeb">
   </div>
-  <div class="hero-badge"><span class="badge-dot"></span>Online Hackathon &nbsp;·&nbsp; April – May 2026</div>
+  <div class="hero-badge"><span class="badge-dot"></span>Online Hackathon &nbsp;·&nbsp; April – May 2026 &nbsp;·&nbsp; By Webxy Studio</div>
   <div class="hero-eyebrow">Build Real Solutions &nbsp;·&nbsp; No PPT &nbsp;·&nbsp; Only Execution</div>
   <h1 class="hero-title" data-text="CyphrWebHackathon">CyphrWeb<br>Hackathon</h1>
   <p class="hero-sub">3-Day Online Execution · GitHub-Based Submissions</p>
+  <p class="hero-organized">Organized by <span>Webxy Studio</span></p>
   <p class="hero-tagline">Build &nbsp;·&nbsp; Execute &nbsp;·&nbsp; Win</p>
   <div class="prize-splash">
     <div class="prize-amt">₹10,000</div>
@@ -478,7 +488,7 @@ footer span{color:var(--pk)}
 <!-- REGISTER -->
 <div class="reg-section" id="register">
   <div class="reg-card reveal">
-    <img class="reg-logo" src="logo.png" alt="CyphrWeb">
+    <img class="reg-logo" src="src/Webxy.png" alt="CyphrWeb">
     <div class="reg-title">Ready to Build?</div>
     <div class="reg-subtitle">Join CyphrWeb Hackathon 2026</div>
     <div class="fee-badge">
@@ -498,7 +508,14 @@ footer span{color:var(--pk)}
 
 <!-- ORGANIZERS -->
 <section id="organizers">
-  <div class="reveal"><p class="sec-label">The Team</p><h2 class="sec-title">Organizers</h2></div>
+  <div class="reveal"><p class="sec-label">Presented By</p><h2 class="sec-title">Organized by Webxy Studio</h2></div>
+  <div class="webxy-org-banner reveal">
+    <img src="src/Webxy.png" alt="Webxy Studio" class="webxy-banner-logo">
+    <div class="webxy-banner-text">
+      <div class="webxy-banner-name">Webxy Studio</div>
+      <div class="webxy-banner-desc">CyphrWeb Hackathon is proudly organized and hosted by Webxy Studio — building the next generation of developers through real-world execution challenges.</div>
+    </div>
+  </div>
   <div class="org-grid reveal">
     <div class="org-card">
       <div class="org-av"><img src="sandesh.png" alt="Sandesh" onerror="this.parentElement.outerHTML='<div class=&quot;org-av-fb&quot;>SS</div>'"></div>
@@ -537,8 +554,9 @@ footer span{color:var(--pk)}
 </section>
 
 <footer>
-  <img class="footer-logo" src="logo.png" alt="CyphrWeb">
+  <img class="footer-logo" src="src/Webxy.png" alt="Webxy Studio">
   <p>© 2026 <span>CyphrWeb Hackathon</span></p>
+  <p style="margin-top:6px;opacity:.8">Organized &amp; Presented by <span style="color:var(--pk);font-weight:700">Webxy Studio</span></p>
   <p style="margin-top:6px;opacity:.6">Build. Execute. Win. &nbsp;·&nbsp; 100% Online &nbsp;·&nbsp; 13 Apr – 08 May 2026 &nbsp;·&nbsp; ₹10,000 Prize Pool</p>
 </footer>
 
