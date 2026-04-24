@@ -465,9 +465,61 @@ nav.scrolled::after{opacity:1}
 .nav-links a.active{color:var(--pk)}
 .nav-links a.active::after{width:100%}
 
-/* COUNTDOWN DIGIT FLIP */
-.cd-num{transition:transform .15s,opacity .15s}
-.cd-num.flip{transform:rotateX(90deg);opacity:0}
+
+/* EXAM NOTICE BAR */
+.exam-notice-bar{
+  position:relative;z-index:202;
+  background:linear-gradient(135deg,rgba(255,215,0,.12),rgba(255,45,120,.1),rgba(255,215,0,.12));
+  border-bottom:1px solid rgba(255,215,0,.35);
+  padding:12px 20px;
+  overflow:hidden;
+}
+.exam-notice-bar::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 120px,rgba(255,215,0,.03) 120px,rgba(255,215,0,.03) 121px);pointer-events:none}
+.exam-notice-bar::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gd),var(--pk),var(--gd),transparent)}
+.exam-notice-inner{
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.12em;
+  color:rgba(255,230,150,.9);text-align:center;position:relative;z-index:1;
+  text-transform:uppercase;
+}
+.exam-notice-inner strong{color:var(--gd);font-weight:700;font-size:.75rem;letter-spacing:.18em}
+.exam-notice-inner span{opacity:.88}
+.exam-sep{color:rgba(255,215,0,.4);margin:0 4px}
+.exam-icon{font-size:1rem}
+
+/* ENHANCED CARD GLOW ON HOVER */
+.r-card:hover{box-shadow:0 18px 50px rgba(0,212,255,.12),0 0 0 1px rgba(0,212,255,.18)}
+.feat:hover{box-shadow:0 14px 40px rgba(255,45,120,.1),0 0 0 1px rgba(255,45,120,.2)}
+
+/* ENHANCED SECTION LABELS */
+.sec-label{background:linear-gradient(90deg,rgba(255,45,120,.06),transparent);padding:4px 12px 4px 0;border-radius:2px}
+
+/* TIMELINE STEP PULSE (active/current phase) */
+.r-card.current-phase{border-color:rgba(0,255,157,.4)!important;box-shadow:0 0 30px rgba(0,255,157,.08)}
+.r-card.current-phase::before{background:linear-gradient(180deg,var(--grn),var(--bl))!important}
+
+/* ENHANCED HERO STATS */
+.hero-stats{background:rgba(7,7,26,.6);border:1px solid rgba(255,255,255,.06);padding:18px 32px;backdrop-filter:blur(10px);gap:48px}
+.hstat{position:relative}
+.hstat:not(:last-child)::after{content:'';position:absolute;right:-24px;top:50%;transform:translateY(-50%);height:28px;width:1px;background:rgba(255,255,255,.08)}
+
+/* ENHANCED COUNTDOWN */
+.cd-box{background:linear-gradient(135deg,rgba(7,7,26,.97),rgba(20,7,40,.95));box-shadow:0 20px 60px rgba(255,45,120,.06),inset 0 1px 0 rgba(255,255,255,.04)}
+.cd-unit{position:relative;overflow:hidden}
+.cd-unit::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--pk),transparent);opacity:.5}
+
+/* ENHANCED REGISTER SECTION */
+.reg-card{background:linear-gradient(145deg,rgba(7,7,26,.98),rgba(20,5,40,.98))}
+
+/* ENHANCED NAV */
+nav{background:rgba(4,4,15,.95)}
+
+/* GLOWING TIMELINE BADGES for extended dates */
+.r-badge{position:relative}
+
+/* ENHANCED FOOTER */
+footer{background:linear-gradient(180deg,transparent,rgba(255,45,120,.03))}
+
 </style>
 </head>
 <body>
@@ -477,15 +529,24 @@ nav.scrolled::after{opacity:1}
 <canvas id="trail-canvas"></canvas>
 
 <!-- TOP ANNOUNCEMENT BAR -->
-<div class="top-bar"><strong>🏆 CyphrWeb Hackathon 2026</strong> <span>— Organized by</span> <strong>Webxy Studio</strong> <span>·</span> <strong>₹10,000 Prize Pool</strong> <span>· 13 Apr – 08 May 2026</span></div>
+<div class="exam-notice-bar">
+  <div class="exam-notice-inner">
+    <span class="exam-icon">📢</span>
+    <strong>DATES EXTENDED</strong>
+    <span class="exam-sep">—</span>
+    <span>Due to upcoming examinations, the hackathon has been rescheduled for maximum participation. New timeline: Registration until <strong>20 June</strong> · Sprint on <strong>1 August</strong></span>
+    <span class="exam-icon">🎓</span>
+  </div>
+</div>
+<div class="top-bar"><strong>🏆 CyphrWeb Hackathon 2026</strong> <span>— Organized by</span> <strong>Vector.ioST</strong> <span>·</span> <strong>₹10,000 Prize Pool</strong> <span>· 23 Apr – 1 Aug 2026</span></div>
 
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-brand">
-    <img class="nav-logo" src="logo.png" alt="Webxy Studio">
+    <img class="nav-logo" src="logo.png" alt="Vector.ioST">
     <div class="nav-brand-text">
       <span class="nav-wordmark">CyphrWeb</span>
-      <span class="nav-byline">by Webxy Studio</span>
+      <span class="nav-byline">by Vector.ioST</span>
     </div>
   </a>
   <button class="nav-toggle" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
@@ -493,7 +554,7 @@ nav.scrolled::after{opacity:1}
     <li><a href="#rounds">Timeline</a></li>
     <li><a href="#prizes">Prizes</a></li>
     <li><a href="#why">Why Join</a></li>
-    <li><a href="#webxy" style="color:var(--pk)">Webxy Studio</a></li>
+    <li><a href="#webxy" style="color:var(--pk)">Vector.ioST</a></li>
     <li><a href="#register">Register</a></li>
     <li><a href="#organizers">Team</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -507,22 +568,22 @@ nav.scrolled::after{opacity:1}
   <div class="hero-orb orb2"></div>
   <div class="hero-orb orb3"></div>
 
-  <!-- Webxy Studio powered-by strip at top of hero -->
+  <!-- Vector.ioST powered-by strip at top of hero -->
   <div class="hero-powered-by">
-    <img src="src/Webxy.png" alt="Webxy Studio" class="hpb-logo">
-    <span class="hpb-text">A <strong>Webxy Studio</strong> Production</span>
+    <img src="src/Webxy.png" alt="Vector.ioST" class="hpb-logo">
+    <span class="hpb-text">A <strong>Vector.ioST</strong> Production</span>
     <span class="hpb-sep">|</span>
-    <span class="hpb-funded">🏗️ Organized by Webxy Studio</span>
+    <span class="hpb-funded">🏗️ Organized by Vector.ioST</span>
   </div>
 
   <div class="hero-logo-wrap">
     <img class="hero-logo" src="logo.png" alt="CyphrWeb">
   </div>
-  <div class="hero-badge"><span class="badge-dot"></span>Online Hackathon &nbsp;·&nbsp; April – May 2026 &nbsp;·&nbsp; By Webxy Studio</div>
+  <div class="hero-badge"><span class="badge-dot"></span>Online Hackathon &nbsp;·&nbsp; April – August 2026 &nbsp;·&nbsp; By Vector.ioST</div>
   <div class="hero-eyebrow">Build Real Solutions &nbsp;·&nbsp; No PPT &nbsp;·&nbsp; Only Execution</div>
   <h1 class="hero-title" data-text="CyphrWebHackathon">CyphrWeb<br>Hackathon</h1>
   <p class="hero-sub">3-Day Online Execution · GitHub-Based Submissions</p>
-  <p class="hero-organized">Organized by <span>Webxy Studio</span></p>
+  <p class="hero-organized">Organized by <span>Vector.ioST</span></p>
   <p class="hero-tagline">Build &nbsp;·&nbsp; Execute &nbsp;·&nbsp; Win</p>
   <div class="prize-splash">
     <div class="prize-amt">₹10,000</div>
@@ -558,40 +619,41 @@ nav.scrolled::after{opacity:1}
 <section id="rounds">
   <div class="reveal"><p class="sec-label">Event Structure</p><h2 class="sec-title">The Rounds</h2></div>
   <div class="timeline reveal">
-    <div class="r-card" style="border-color:rgba(255,215,0,.25)">
+    <div class="r-card current-phase" style="border-color:rgba(255,215,0,.25)">
       <div class="r-num" style="color:rgba(255,215,0,.12)">00</div>
       <span class="r-badge rb-gold">Registration Open</span>
+      <span class="r-badge" style="background:rgba(0,255,157,.08);border-color:rgba(0,255,157,.3);color:var(--grn);margin-left:6px">🎓 Extended</span>
       <div class="r-title">Register Your Team</div>
-      <div class="r-date">📅 13 April – 23 April 2026</div>
-      <p class="r-desc">Register as a team of 2–4. Fill all team details, pay ₹199, and submit the form. Slots are limited — move fast!</p>
-      <div class="r-foot" style="color:var(--gd);border-color:rgba(255,215,0,.15)"><span>📋</span>Registration Window · 10 Days</div>
+      <div class="r-date">📅 23 April – 20 June 2026</div>
+      <p class="r-desc">Register as a team of 2–4. Fill all team details, pay ₹199, and submit the form. Dates extended due to exams — more time for everyone!</p>
+      <div class="r-foot" style="color:var(--gd);border-color:rgba(255,215,0,.15)"><span>📋</span>Registration Window · Extended Due to Exams</div>
     </div>
     <div class="r-card">
       <div class="r-num">01</div>
       <span class="r-badge rb-blue">Online</span>
       <div class="r-title">Prototype Submission</div>
-      <div class="r-date">📅 23 April – 03 May 2026</div>
+      <div class="r-date">📅 22 June – 20 July 2026</div>
       <p class="r-desc">Submit your initial prototype and working code. Problem statements provided — no need to hunt for ideas. Working code only.</p>
       <div class="r-foot"><span>⏱</span>GitHub Link Submission</div>
-      <div class="r-res">🎯 Results: 03 May 2026</div>
+      <div class="r-res">🎯 Results: 20 July 2026</div>
     </div>
     <div class="r-card">
       <div class="r-num">02</div>
       <span class="r-badge rb-pur">Execution</span>
       <div class="r-title">Execution Rounds (3 Days)</div>
-      <div class="r-date">📅 04 May – 06 May 2026</div>
+      <div class="r-date">📅 25, 26, 27 July 2026</div>
       <p class="r-desc">Three consecutive 12-hour daily execution rounds. Build, iterate, and improve. Daily GitHub commits required.</p>
       <div class="r-foot"><span>⚡</span>12 Hours / Day · GitHub-Based</div>
-      <div class="r-res">🎯 Results: 06 May 2026</div>
+      <div class="r-res">🎯 Results: 28 July 2026</div>
     </div>
     <div class="r-card" style="border-color:rgba(255,45,120,.22)">
       <div class="r-num" style="color:rgba(255,45,120,.12)">03</div>
       <span class="r-badge rb-pink">Final</span>
       <div class="r-title">24-Hour Sprint</div>
-      <div class="r-date">📅 07 May 2026</div>
+      <div class="r-date">📅 1 August 2026</div>
       <p class="r-desc">One continuous 24-hour window. Submit your final polished product for evaluation. Give it everything you've got.</p>
       <div class="r-foot" style="color:var(--pk);border-color:rgba(255,45,120,.15)"><span>🏆</span>Final Submission &amp; Evaluation</div>
-      <div class="r-res">🏆 Final Results: 08 May 2026</div>
+      <div class="r-res">🏆 Final Results: 1 August 2026</div>
     </div>
   </div>
 </section>
@@ -629,7 +691,7 @@ nav.scrolled::after{opacity:1}
   <p style="text-align:center;margin-top:28px;font-family:'Space Mono',monospace;font-size:.75rem;color:var(--gd);letter-spacing:.14em">TOTAL PRIZE POOL: ₹10,000 + OPPORTUNITIES</p>
   <div class="perks reveal">
     <div class="perk"><div class="perk-icon">💡</div><div><div class="perk-title">Problem Statements Provided</div><p class="perk-desc">Curated real-world problems given by organizers — no hunting needed.</p></div></div>
-    <div class="perk"><div class="perk-icon">🤝</div><div><div class="perk-title">Partner Opportunities</div><p class="perk-desc">Selected participants may work as potential partners on promising ideas with Webxy Studio.</p></div></div>
+    <div class="perk"><div class="perk-icon">🤝</div><div><div class="perk-title">Partner Opportunities</div><p class="perk-desc">Selected participants may work as potential partners on promising ideas with Vector.ioST.</p></div></div>
     <div class="perk"><div class="perk-icon">🚀</div><div><div class="perk-title">Startup Support</div><p class="perk-desc">Best teams may receive startup support and direct mentorship.</p></div></div>
   </div>
 </section>
@@ -665,22 +727,22 @@ nav.scrolled::after{opacity:1}
 <div class="div"></div>
 <section id="webxy" class="webxy-spotlight">
   <div class="webxy-spotlight-bg"></div>
-  <div class="reveal"><p class="sec-label">The Force Behind It All</p><h2 class="sec-title">Webxy Studio</h2></div>
+  <div class="reveal"><p class="sec-label">The Force Behind It All</p><h2 class="sec-title">Vector.ioST</h2></div>
 
   <!-- Hero Card -->
   <div class="webxy-hero-card reveal">
     <div class="whc-inner">
       <div class="whc-logo-col">
         <div class="whc-logo-ring">
-          <img src="src/Webxy.png" alt="Webxy Studio" class="whc-main-logo">
+          <img src="src/Webxy.png" alt="Vector.ioST" class="whc-main-logo">
         </div>
         <div class="whc-logo-label">Official Organizer</div>
       </div>
       <div class="whc-content">
         <div class="whc-eyebrow">Proud Organizer of CyphrWeb Hackathon</div>
-        <div class="whc-name">Webxy Studio</div>
+        <div class="whc-name">Vector.ioST</div>
         <p class="whc-desc">
-          CyphrWeb Hackathon exists because of one company's belief in the next generation of developers — <strong style="color:#fff">Webxy Studio</strong>. They conceptualized this event, built it from the ground up, and manage every aspect of the experience. Every problem statement, every evaluation round, every milestone — all driven by Webxy Studio. Connect with us on webxystudio@gmail.com
+          CyphrWeb Hackathon exists because of one company's belief in the next generation of developers — <strong style="color:#fff">Vector.ioST</strong>. They conceptualized this event, built it from the ground up, and manage every aspect of the experience. Every problem statement, every evaluation round, every milestone — all driven by Vector.ioST. Connect with us on webxystudio@gmail.com
         </p>
         <div class="whc-badges">
           <span class="whc-badge pk">🏆 Title Organizer</span>
@@ -696,7 +758,7 @@ nav.scrolled::after{opacity:1}
   <div class="webxy-metrics reveal">
     <div class="wm-item">
       <div class="wm-val">100%</div>
-      <div class="wm-lbl">Event Organized<br>by Webxy Studio</div>
+      <div class="wm-lbl">Event Organized<br>by Vector.ioST</div>
     </div>
     <div class="wm-item">
       <div class="wm-val">₹10K</div>
@@ -717,19 +779,19 @@ nav.scrolled::after{opacity:1}
     <div class="wr-card">
       <span class="wr-icon">🏗️</span>
       <div class="wr-title">Organizer</div>
-      <p class="wr-desc">Webxy Studio designed every round, crafted problem statements, set up the evaluation framework, and managed all logistics from registration to results.</p>
+      <p class="wr-desc">Vector.ioST designed every round, crafted problem statements, set up the evaluation framework, and managed all logistics from registration to results.</p>
       <span class="wr-highlight">Full Event Management</span>
     </div>
     <div class="wr-card">
       <span class="wr-icon">🎯</span>
       <div class="wr-title">Event Architect</div>
-      <p class="wr-desc">From problem statements to round structures and judging criteria — every detail of CyphrWeb Hackathon was crafted with precision by the Webxy Studio team.</p>
+      <p class="wr-desc">From problem statements to round structures and judging criteria — every detail of CyphrWeb Hackathon was crafted with precision by the Vector.ioST team.</p>
       <span class="wr-highlight">End-to-End Design</span>
     </div>
     <div class="wr-card">
       <span class="wr-icon">🌟</span>
       <div class="wr-title">Vision Holder</div>
-      <p class="wr-desc">Webxy Studio believes developers grow through execution, not presentations. This hackathon is a direct reflection of their mission to build a stronger dev community.</p>
+      <p class="wr-desc">Vector.ioST believes developers grow through execution, not presentations. This hackathon is a direct reflection of their mission to build a stronger dev community.</p>
       <span class="wr-highlight">The Driving Mission</span>
     </div>
   </div>
@@ -740,23 +802,23 @@ nav.scrolled::after{opacity:1}
 
 <!-- ORGANIZERS -->
 <section id="organizers">
-  <div class="reveal"><p class="sec-label">Webxy Studio Team</p><h2 class="sec-title">The People Behind It</h2></div>
+  <div class="reveal"><p class="sec-label">Vector.ioST Team</p><h2 class="sec-title">The People Behind It</h2></div>
   <div class="webxy-org-team-note reveal">
-    <img src="src/Webxy.png" alt="Webxy Studio" style="width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(255,45,120,.5));flex-shrink:0">
-    <p>These organizers are from <strong style="color:var(--pk)">Webxy Studio</strong> — the team that built and runs CyphrWeb Hackathon.</p>
+    <img src="src/Webxy.png" alt="Vector.ioST" style="width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(255,45,120,.5));flex-shrink:0">
+    <p>These organizers are from <strong style="color:var(--pk)">Vector.ioST</strong> — the team that built and runs CyphrWeb Hackathon.</p>
   </div>
   <div class="org-grid reveal">
     <div class="org-card">
       <div class="org-av"><img src="sandesh.png" alt="Sandesh" onerror="this.parentElement.outerHTML='<div class=&quot;org-av-fb&quot;>SS</div>'"></div>
-      <div class="org-name">Sandesh Shingankar</div><div class="org-role">Lead Organizer · Webxy Studio</div>
+      <div class="org-name">Sandesh Shingankar</div><div class="org-role">Lead Organizer · Vector.ioST</div>
     </div>
     <!-- <div class="org-card">
       <div class="org-av"><img src="kiran.png" alt="Kiran" onerror="this.parentElement.outerHTML='<div class=&quot;org-av-fb&quot;>KR</div>'"></div>
-      <div class="org-name">Kiran Rathod</div><div class="org-role">Co-Organizer · Webxy Studio</div>
+      <div class="org-name">Kiran Rathod</div><div class="org-role">Co-Organizer · Vector.ioST</div>
     </div> -->
     <div class="org-card">
       <div class="org-av"><img src="sandesh.png" alt="Sandesh" onerror="this.parentElement.outerHTML='<div class=&quot;org-av-fb&quot;>TN</div>'"></div>
-      <div class="org-name">Tejas Naiknaware</div><div class="org-role">Organizer · Webxy Studio</div>
+      <div class="org-name">Tejas Naiknaware</div><div class="org-role">Organizer · Vector.ioST</div>
     </div>
     
   </div>
@@ -782,7 +844,7 @@ nav.scrolled::after{opacity:1}
     </div>
      <div class="con-card">
       <div class="con-av"><img src="src/Webxy.png" alt="src/Webxy.png" onerror="this.parentElement.outerHTML='<div class=&quot;con-av-fb&quot;>KR</div>'"></div>
-      <div><div class="con-name">Webxy Studio</div><div class="con-role"> · Help &amp; Querie · webxystudio@gmail.com</div></div>
+      <div><div class="con-name">Vector.ioST</div><div class="con-role"> · Help &amp; Querie · webxystudio@gmail.com</div></div>
     </div>
    
   </div>
@@ -790,14 +852,14 @@ nav.scrolled::after{opacity:1}
 
 <footer>
   <div class="footer-webxy-strip">
-    <img src="src/Webxy.png" alt="Webxy Studio" class="footer-logo">
-    <div class="footer-webxy-name">Webxy Studio</div>
+    <img src="src/Webxy.png" alt="Vector.ioST" class="footer-logo">
+    <div class="footer-webxy-name">Vector.ioST</div>
     <div class="footer-webxy-tagline">Official Organizer · CyphrWeb Hackathon</div>
   </div>
   <div class="footer-divider"></div>
-  <p>© 2026 <span>CyphrWeb Hackathon</span> — A <span>Webxy Studio</span> Event</p>
-  <p style="margin-top:8px;opacity:.55;font-size:.6rem">Organized by <span style="color:var(--pk);opacity:1">Webxy Studio</span> · All Rights Reserved</p>
-  <p style="margin-top:6px;opacity:.45">Build. Execute. Win. &nbsp;·&nbsp; 100% Online &nbsp;·&nbsp; 13 Apr – 08 May 2026 &nbsp;·&nbsp; ₹10,000 Prize Pool</p>
+  <p>© 2026 <span>CyphrWeb Hackathon</span> — A <span>Vector.ioST</span> Event</p>
+  <p style="margin-top:8px;opacity:.55;font-size:.6rem">Organized by <span style="color:var(--pk);opacity:1">Vector.ioST</span> · All Rights Reserved</p>
+  <p style="margin-top:6px;opacity:.45">Build. Execute. Win. &nbsp;·&nbsp; 100% Online &nbsp;·&nbsp; 23 Apr – 1 Aug 2026 &nbsp;·&nbsp; ₹10,000 Prize Pool</p>
 </footer>
 
 <script>
@@ -960,7 +1022,7 @@ document.querySelector('.hero-logo-wrap')?.addEventListener('click',function(){
 
 // === COUNTDOWN WITH DIGIT FLIP ===
 (function(){
-  const target=new Date('2026-04-23T23:59:59');
+  const target=new Date('2026-06-20T23:59:59');
   const pad=n=>String(n).padStart(2,'0');
   let prev={d:'',h:'',m:'',s:''};
   function flipUpdate(id,val){
